@@ -57,9 +57,7 @@ object AppTheme {
 
 @Composable
 fun BoraStockAppTheme(content: @Composable () -> Unit) {
- //   val adaptiveLayoutType = remember { mutableStateOf(AdaptiveLayoutType.Compact) }
-//    val contentType = remember { mutableStateOf(ContentType.Single) }
-    val isDark = remember { mutableStateOf(true) }
+    val isDark = remember { mutableStateOf(false) } // Default to light theme
     val colorScheme: ColorScheme = if (isDark.value) darkScheme else lightScheme
     val fontScale = remember { mutableStateOf(1f) }
     val typography = mutableStateOf(provideTypography(fontScale.value))
@@ -84,13 +82,15 @@ fun BoraStockAppTheme(content: @Composable () -> Unit) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = AppTheme.colors.surface)
+                .background(
+                    brush = Brush.verticalGradient(
+                        colors = listOf(
+                            AppTheme.colors.surface,
+                            AppTheme.colors.surfaceContainer.copy(alpha = 0.1f)
+                        )
+                    )
+                )
         ) {
             content()
         }
     }
-}
-
-//
-//@Composable
-//internal expect fun SystemAppearance(isDark: Boolean)
