@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import org.babetech.borastock.ui.components.NavigationScaffoldScreen
 import org.babetech.borastock.ui.navigation.AppDestinations
 import org.babetech.borastock.ui.screens.stock.StockScreen
+import org.babetech.borastock.ui.screens.entries.EntriesScreen
 
 @Composable
 fun DashboardScreen() {
@@ -22,7 +23,7 @@ fun DashboardScreen() {
         when (currentDestination) {
             AppDestinations.Home -> AccueilScreen()
             AppDestinations.Stocks -> StockScreen()
-            AppDestinations.Entries -> Box(Modifier.fillMaxSize()) { Text("Entrées") }
+            AppDestinations.Entries -> EntriesScreen()
             AppDestinations.Exits -> Box(Modifier.fillMaxSize()) { Text("Sorties") }
             AppDestinations.Suppliers -> Box(Modifier.fillMaxSize()) { Text("Fournisseurs") }
             AppDestinations.Analytics -> Box(Modifier.fillMaxSize()) { Text("Analytique") }
