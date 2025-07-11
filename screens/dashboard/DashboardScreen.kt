@@ -11,6 +11,7 @@ import org.babetech.borastock.ui.navigation.AppDestinations
 import org.babetech.borastock.ui.screens.stock.StockScreen
 import org.babetech.borastock.ui.screens.entries.EntriesScreen
 import org.babetech.borastock.ui.screens.exits.ExitsScreen
+import org.babetech.borastock.ui.screens.suppliers.SupplierListScreen
 
 @Composable
 fun DashboardScreen() {
@@ -26,7 +27,7 @@ fun DashboardScreen() {
             AppDestinations.Stocks -> StockScreen()
             AppDestinations.Entries -> EntriesScreen()
             AppDestinations.Exits -> ExitsScreen()
-            AppDestinations.Suppliers -> Box(Modifier.fillMaxSize()) { Text("Fournisseurs") }
+            AppDestinations.Suppliers -> SupplierListScreen()
             AppDestinations.Analytics -> Box(Modifier.fillMaxSize()) { Text("Analytique") }
             AppDestinations.Settings -> Box(Modifier.fillMaxSize()) { Text("Paramètres") }
         }
